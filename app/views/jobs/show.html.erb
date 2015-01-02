@@ -1,9 +1,18 @@
-<h1>Show Jobs</h1>
- 
-<h2><%= @job.title %></h2>
-<h2><%= @job.description %></h2>
-<h2><%= @job.company %></h2>
+<div id="jobs">
+	<div class="job">
+		<h2><%= @job.title %></h2>
+		<p><%= @job.description %></p>
+		<p><%= @job.company %></p>
 
-<%= link_to "Home", root_path %>
-<%= link_to "Edit", edit_job_path(@job) %>
-<%= link_to "Delete", job_path(@job), method: :delete, data: { confirm: "Are you sure"} %>
+
+	<button class="btn btn-default">
+		<%= link_to "Apply for Job", @job.url %>
+	</button>
+</div>
+</div>
+
+<div id="links">
+		<%= link_to "Back", root_path, class: "btn btn-sm btn-default" %>
+		<%= link_to "Edit", edit_job_path(@job), class: "btn btn-sm btn-default" %>
+		<%= link_to "Delete", job_path(@job), method: :delete, data: { confirm: "Are you sure"}, class: "btn btn-sm btn-default" %>
+</div>
