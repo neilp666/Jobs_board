@@ -1,4 +1,8 @@
+<h1> New Job </h1>
+
 <%= simple_form_for(@job, html: { class: 'form-horizontal' }) do |f| %>
+	
+<%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "Choose a category" }, input_html: { class: "dropdown-toggle" } %>
 
 
 	<%= f.input :title, label: "Job Title", input_html: { class: "form-control" } %>

@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>JobsBoard</title>
+  <title>Jobs Board</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+		<div class="container">
+			<h1>Jobs<h1>
+					<li><%= link_to "All Jobs", root_path %></li>
+						<%= Category.all.each do |category | %>
+					<li><%= link_to category.name, jobs_path(category: category.name) %></li>
+			<% end %>
+					</ul><%= link_to "New Job", new_job_path, class: "btn btn-primary" %></ul>
+	
 <%= yield %>
+</div>
 
 </body>
 </html>
